@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="unsubscribe_form_resubscribe" inherit_id="mass_mailing.unsubscribe_form">
+        <xpath expr="//div[@id='o_mailing_subscription_info']/t[@t-if='unsubscribed_name']" position="inside">
+            <!-- Only the lists this mailing just opted them out of, never older opt-outs -->
+            <t t-set="resub_list_ids" t-value="request.env['mailing.mailing'].sudo().browse(mailing_id).contact_list_ids.filtered('is_public').ids if mailing_id else []"/>
+            <div t-if="resub_list_ids and not is_blocklisted" id="o_mailing_resubscribe_wrap" class="mt-3">
+                <p class="mb-2">Clicked by mistake?</p>
+                <button type="button" id="o_mailing_resubscribe" class="btn btn-primary"
+                        t-att-data-list-ids="','.join(str(i) for i in resub_list_ids)">Keep me subscribed</button>
+            </div>
+        </xpath>
+    </template>
+</odoo>
