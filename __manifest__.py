@@ -1,6 +1,6 @@
 {
     "name": "Mass Mailing: One-Click Resubscribe",
-    "version": "18.0.1.0.0",
+    "version": "20.0.1.0.0",
     "summary": "Adds a 'Clicked by mistake? Keep me subscribed' button to the unsubscribe page",
     "author": "19 Prince",
     "website": "https://19prince.com",
