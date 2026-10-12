@@ -6,7 +6,7 @@ from odoo.addons.mass_mailing.controllers.main import MassMailController
 
 class MassMailResubscribe(MassMailController):
 
-    @http.route('/mailing/<int:mailing_id>/resubscribe', type='json', auth='public', website=True)
+    @http.route('/mailing/<int:mailing_id>/resubscribe', type='jsonrpc', auth='public', website=True)
     def mailing_resubscribe(self, mailing_id, document_id=None, email=None, hash_token=None):
         """Undo an unsubscribe: opt back in to the mailing's own public lists.
         Same token check as Odoo's unsubscribe link, so only the recipient can call it."""
